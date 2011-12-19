@@ -1,2 +1,8 @@
 Android fastboot and adb tools for linux
 written in python gtk and glade
+
+how to run:
+double click "Tool-Box"
+
+if it doesnt works install "gksu" and try again
+if still doesnt works you will need dependecies for python gtk and glade
