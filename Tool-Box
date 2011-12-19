@@ -1,0 +1,26 @@
+#!/bin/bash
+
+CambiaDir=`readlink -f "$0"`
+ast="`dirname $CambiaDir`"
+cd "`dirname $CambiaDir`"
+if [ ! -e ./Android-TB.desktop ]
+then
+	cat >>./Android-TB.desktop<<EOF
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Icon[es_AR]=$ast/.pixmaps/.Icono.png
+Name[es_AR]=ToolBox
+Exec=$ast/Tool-Box
+Name=ToolBox
+Icon=$ast/.pixmaps/.Icono.png
+EOF
+	chmod 755 ./Android-TB.desktop
+	zenity --info --text="Pone las roms en la carpeta $ast/rom
+Se ha creado un Launcher, Copialo al escritorio"
+fi
+gksu "python ./A-ToolBox.py"
+
